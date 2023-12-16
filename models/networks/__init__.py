@@ -40,9 +40,7 @@ def modify_commandline_options(parser, is_train):
 def create_network(cls, opt):
     net = cls(opt)
     net.print_network()
-    if len(opt.gpu_ids) > 0:
-        assert(torch.cuda.is_available())
-        net.cuda()
+
     net.init_weights(opt.init_type, opt.init_variance)
     return net
 
